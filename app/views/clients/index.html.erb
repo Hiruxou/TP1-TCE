@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Clients</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Prenom</th>
+      <th>Nom</th>
+      <th>Daten de aissance</th>
+      <th>Numéro d'assurance social</th>
+      <th>Adresse</th>
+      <th>Nombres d'enfants</th>
+      <th>Compte de taxes proprietaire</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <% @clients.each do |client| %>
+      <tr>
+        <td><%= client.Prenom %></td>
+        <td><%= client.Nom %></td>
+        <td><%= client.DateNaissance %></td>
+        <td><%= client.nas %></td>
+        <td><%= client.Adress.Ville %>
+        <%= client.Adress.Province %></td>
+        <td><%= client.NombresEnfants %></td>
+        <td><%= client.CompteTaxesProprietaire %></td>
+        <td><%= link_to 'Visualiser', client,  class: 'btn btn-info' %></td>
+        <td><%= link_to 'Modifier', edit_client_path(client), class: 'btn btn-warning' %></td>
+        <td><%= link_to 'Detruire', client, method: :delete, data: { confirm: 'Êtes-vous sûr?' } ,  class: 'btn btn-danger'%></td>
+      </tr>
+    <% end %>
+  </tbody>
+  </thead>
+</table>
+
+<br>
+
+<%= link_to 'Nouveau Client', new_client_path, class: 'btn btn-success' %>

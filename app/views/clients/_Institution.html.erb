@@ -1,0 +1,7 @@
+  <tr>
+  <td><%= f.input :Nom, label: false %></td>
+  <td style="width: 15%">
+    <%= f.input_field :_destroy, as: :hidden %>
+    <%= link_to 'Supprimer', '#', class: 'btn btn-primary disabled' %>
+  </td>
+</tr>

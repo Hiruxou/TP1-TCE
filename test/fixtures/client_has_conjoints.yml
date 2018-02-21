@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Client: one
+  Client_Has_Conjoint: one
+  DateDebut: 2018-02-20
+  DateFin: 2018-02-20
+
+two:
+  Client: two
+  Client_Has_Conjoint: two
+  DateDebut: 2018-02-20
+  DateFin: 2018-02-20

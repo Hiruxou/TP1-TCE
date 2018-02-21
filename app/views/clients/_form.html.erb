@@ -1,0 +1,66 @@
+
+<%= simple_form_for(@client) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="container">
+    <div class="col-md-3">
+      <div class="form-inputs">
+        <%= f.input :Prenom %>
+        <%= f.input :Nom %>
+        <%= f.input :DateNaissance, as: :date, html5: true, label: "Date de naissance" %>
+        <%= f.input :nas, label: "Numéro d'assurance social" %>
+        <%= f.input :NombresEnfants, label: "Nombres d'enfants" %>
+        <%= f.input :CompteTaxesProprietaire, label: "Compte de taxes" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="col-md-3">
+      <div class="adress link">
+          <%= f.simple_fields_for :Adress do |ff| %>
+          <%= render 'adress', f: ff %>
+          <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+      <h2>Etudes <div class="float-right"><%= link_to_add_row('Ajouter des études', f, :Etude, class: 'btn btn-primary', target: '.etude') %></div></h2>
+          <table class='table'>
+            <thead>
+            <tr>
+              <th>Stecteur des études</th>
+              <th>Niveau</th>
+              <th>Date de début</th>
+              <th>Date de fin</th>
+            </tr>
+            </thead>
+            <tbody class='etude'>
+            <%= f.simple_fields_for :Etude do |builder| %>
+              <%= render 'Etude', f: builder %>
+            <% end %>
+            </tbody>
+          </table>
+  </div>
+
+    <div class="container">
+      <h2>Institution <div class="float-right"><%= link_to_add_row('Ajouter une institution', f, :Institution, class: 'btn btn-primary disabled' , target: '.institution') %></div></h2>
+          <table class='table'>
+            <thead>
+            <tr>
+              <th>Nom de l'institution</th>
+            </tr>
+            </thead>
+            <tbody class='institution'>
+            <%= f.simple_fields_for :Institution do |builder| %>
+              <%= render 'institution', f: builder %>
+            <% end %>
+            </tbody>
+          </table>
+  </div>
+
+      <div class="form-actions">
+        <%= f.submit "Créer le client", class: 'btn btn-success btn-block' %>
+      </div>
+    <% end %>

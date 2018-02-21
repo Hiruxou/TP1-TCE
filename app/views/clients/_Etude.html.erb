@@ -1,0 +1,10 @@
+  <tr>
+  <td><%= f.input :SecteurEtudes, label: false %></td>
+  <td><%= f.input :Niveau, label: false %></td>
+  <td><%= f.input :DateDebut, as: :date, html5: true, label: false %></td>
+  <td><%= f.input :DateComplition, as: :date, html5: true, label: false %></td>
+  <td style="width: 15%">
+    <%= f.input_field :_destroy, as: :hidden %>
+    <%= link_to 'Supprimer', '#', class: 'btn btn-danger btn-xs remove_record' %>
+  </td>
+</tr>

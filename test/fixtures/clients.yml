@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Prenom: MyString
+  Nom: MyString
+  DateNaissance: 2018-02-20
+  nas: MyString
+  Adress: one
+  NombresEnfants: 1
+  CompteTaxesProprietaire: 1
+
+two:
+  Prenom: MyString
+  Nom: MyString
+  DateNaissance: 2018-02-20
+  nas: MyString
+  Adress: two
+  NombresEnfants: 1
+  CompteTaxesProprietaire: 1
