@@ -1,0 +1,33 @@
+rails g scaffold Client Prenom:string Nom:string DateNaissance:date nas:string Adress:references NombresEnfants:decimal CompteTaxesProprietaire:decimal
+rails g model Adress NumeroCivique:string Rue:string CodePostal:string Ville:string Province:string
+rails g model Client_Has_Conjoint Client:references Client_Has_Conjoint:references DateDebut:date DateFin:date
+rails g model Etude SecteurEtudes:string Niveau:string DateDebut:date DateComplition:date Client:references Institution:references
+rails g model Institution Nom:string Adress:references
+rails g model Client_Has_Enfant Enfant:references Client:references Lien:boolean
+rails g model Enfant Nom:string Prenom:string DateNaissance:date
+rails g model Client_EtatsCivil Client:references EtatsCivil:references DateDebut:date DateFin:date
+rails g model EtatsCivil type:string
+rails g model Client_has_Employeur Client:references Employeur:references DateDebut:date DateFin:date
+rails g model Employeur Nom:string Adress:references
+rails db:migrate
+//modifier les modeles et completer les association entre eux
+
+rails g controller Clients new create update destroy index show
+
+rails g simple_form:install --bootstrap
+
+rails -g scaffold Client Prenom:string Nom:string DateNaissance:date nas:string Adress:references NombresEnfants:decimal CompteTaxesProprietaire:decimal
+
+rails g model Client Prenom:string Nom:string DateNaissance:date nas:string AdresseId:references NombresEnfants:decimal CompteTaxesProprietaire:decimal && rails g model Adresse NumeroCivique:string Rue:string CodePostal:string Ville:string Province:string && rails g model Client_Has_Conjoint Clients_id:references Clients_Conjoint_id:references DateDebut:date DateFin:date && rails g model Etude SecteurEtudes:string Niveau:string DateDebut:date DateComplition:date Clients_id:references Institutions_id:references && rails g model Institution Nom:string Adresses_id:references && rails g model Client_Has_Enfant Enfants_id:references Clients_id:references Lien:integer && rails g model Enfant Nom:string Prenom:string DateNaissance:date && rails g model Client_EtatsCivil Clients_id:references EtatsCivil_id:references DateDebut:date DateFin:date && rails g model EtatsCivil type:string && rails g model Client_has_Employeur Clients_id:references Employeurs_id:references DateDebut:date DateFin:date && rails g model Employeur Nom:string Adresses_id:references && rails db:migrate
+
+rails -g scaffold 
+
+
+// ACTIONS A RAJOUTER
+                <td>
+                    <%= link_to 'Afficher', client, class: 'btn btn-default btn-xs' %>
+                    <%= link_to 'Editer', edit_project_path(client), class: 'btn btn-default btn-xs' %>
+                    <%= link_to 'Supprimer', client, :confirm => 'Êtes-vous sûre ?', :method => :delete, class: 'btn btn-xs btn-danger' %>
+</td>r
+
+Client.create!(Nom: "Pascal", Prenom: "Jean", DateNaissance:12-11-1994, nas: "1218", AdresseId: "2", NombresEnfants: "1", CompteTaxesProprietaire: "1")
